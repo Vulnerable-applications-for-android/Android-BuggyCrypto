@@ -1,7 +1,9 @@
 task changeDirectory {
     doLast {
-        println "Current directory: " + new File('.').canonicalPath
-        cd 'Android-BuggyCrypto'
-        println "Changed to directory: " + new File('.').canonicalPath
+        def settingsFile = file('settings.gradle')
+        def settingsText = settingsFile.getText('UTF-8')
+        def newSettingsText = settingsText.replaceFirst(/rootProject\.projectDir = .*/, "rootProject.projectDir = 'Android-BuggyCrypto/Android-BuggyCrypto'")
+        settingsFile.write(newSettingsText, 'UTF-8')
+        println "Changed rootProject.projectDir in settings.gradle to 'Android-BuggyCrypto/Android-BuggyCrypto'"
     }
 }
