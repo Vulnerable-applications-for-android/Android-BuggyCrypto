@@ -33,5 +33,6 @@ jobs:
     - name: Build with Gradle
       uses: gradle/gradle-build-action@3fbe033aaae657f011f88f29be9e65ed26bd29ef
       with:
+        build-root-directory: /Android-BuggyCrypto/tree/master/Android-BuggyCrypto
         gradle-version: 7.4
         arguments: build
