@@ -1,0 +1,7 @@
+task changeDirectory {
+    doLast {
+        println "Current directory: " + new File('.').canonicalPath
+        cd 'Android-BuggyCrypto'
+        println "Changed to directory: " + new File('.').canonicalPath
+    }
+}
